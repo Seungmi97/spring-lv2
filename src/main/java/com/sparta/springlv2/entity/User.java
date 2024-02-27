@@ -18,18 +18,18 @@ public class User {
     private String name;
     @Column(name = "gender")
     private char gender;
-    @Column(name = "rrn", unique = true)
-    private String rrn;
+    @Column(name = "idNumber", unique = true)
+    private String idNumber;
     @Column(name = "phone", unique = true)
     private String phone;
-    @Column(name = "addr")
-    private String addr;
+    @Column(name = "address")
+    private String address;
 
     public User(UserRequestDto userRequestDto) {
-        this.name = name;
-        this.gender = gender;
-        this.rrn = rrn;
-        this.phone = phone;
-        this.addr = addr;
+        this.name = userRequestDto.getName();
+        this.gender = userRequestDto.getGender();
+        this.idNumber = userRequestDto.getIdNumber();
+        this.phone = userRequestDto.getPhone();
+        this.address = userRequestDto.getAddress();
     }
 }

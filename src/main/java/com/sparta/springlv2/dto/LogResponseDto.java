@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class LogResponseDto {
     private Long bookId;
     private Long userId;
-    private boolean status;
+    private boolean returned;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private String name;
@@ -20,7 +20,7 @@ public class LogResponseDto {
     public LogResponseDto(Log log) {
         this.bookId = log.getBookId();
         this.userId = log.getUserId();
-        this.status = log.isStatus();
+        this.returned = log.isReturned();
         this.createdAt = log.getCreatedAt();
         this.modifiedAt = log.getModifiedAt();
 //        this.name = name;

@@ -6,7 +6,7 @@ import lombok.Getter;
 public class UserRequestDto {
     private String name;
     private char gender;
-    private String rrn;
+    private String idNumber;
     private String phone;
-    private String addr;
+    private String address;
 }

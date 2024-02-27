@@ -6,5 +6,5 @@ import lombok.Getter;
 public class LogRequestDto {
     private Long bookId;
     private Long userId;
-    private boolean status;
+    private boolean returned;
 }
