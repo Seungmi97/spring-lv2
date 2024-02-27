@@ -1,13 +1,14 @@
 package com.sparta.springlv2.entity;
 
-import com.sparta.springlv2.dto.BookRequestDto;
 import com.sparta.springlv2.dto.UserRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "user")
 @NoArgsConstructor
 public class User {
@@ -18,18 +19,19 @@ public class User {
     private String name;
     @Column(name = "gender")
     private char gender;
-    @Column(name = "rrn", unique = true)
-    private String rrn;
+    @Column(name = "idNumber", unique = true)
+    private String idNumber;
     @Column(name = "phone", unique = true)
     private String phone;
-    @Column(name = "addr")
-    private String addr;
+    @Column(name = "address")
+    private String address;
 
     public User(UserRequestDto userRequestDto) {
         this.name = name;
         this.gender = gender;
-        this.rrn = rrn;
+        this.idNumber = idNumber;
         this.phone = phone;
-        this.addr = addr;
+        this.address = address;
     }
+
 }

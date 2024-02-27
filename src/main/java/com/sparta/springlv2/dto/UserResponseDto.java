@@ -8,12 +8,12 @@ public class UserResponseDto {
     private String name;
     private char gender;
     private String phone;
-    private String addr;
+    private String address;
 
     public UserResponseDto(User user) {
         this.name = user.getName();
         this.gender = user.getGender();
         this.phone = user.getPhone();
-        this.addr = user.getAddr();
+        this.address = user.getAddress();
     }
 }
