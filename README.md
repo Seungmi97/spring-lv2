@@ -6,13 +6,13 @@ API 명세서
 
 | **기능** | **Method** | **URL** | **Request** | **Response** |
 | --- | --- | --- | --- | --- |
-| 도서 등록 | POST | /api/book | {'title': title, 'writer': writer, 'language':language, 'publisher': publisher } | {'title': title, 'writer': writer, 'language':language, 'publisher': publisher, 'createdAt':createdAt} |
-| 회원 등록 | POST | /api/user | {'name':name, 'gender':gender, 'idNumber': idNumber, 'phone': phone, 'address':address} | {'name':name, 'gender':gender, 'phone': phone, 'address':address} |
-| 도서 정보 조회 | GET | /api/book/{bookId} |  | {'title': title, 'writer': writer, 'language':language, 'publisher': publisher, 'createdAt':createdAt} |
+| 도서 등록 | POST | /api/book | {"title": title, "writer": writer, "language":language, "publisher": publisher } | {"title": title, "writer": writer, "language":language, "publisher": publisher, "createdAt":createdAt} |
+| 회원 등록 | POST | /api/user | {"name":name, "gender":gender, "idNumber": idNumber, "phone": phone, "address":address} | {"name":name, "gender":gender, "phone": phone, "address":address} |
+| 도서 정보 조회 | GET | /api/book/{bookId} |  | {"title": title, "writer": writer, "language":language, "publisher": publisher, "createdAt":createdAt} |
 | 도서 목록 조회 | GET | /api/book |  |  |
-| 선택 도서 대출 | POST | /api/book | {도서식별값, 회원식별값} |  |
-| 대출 내역 조회 | GET | /api/book/{userId} |  |  |
-| 선택 도서 반납 | PUT | /api/book |  |  |
+| 선택 도서 대출 | POST | /api/checkout | {"bookId":bookId, "userId":userId} |  |
+| 대출 내역 조회 | GET | /api/ckeck/{userId} |  |  |
+| 선택 도서 반납 | PUT | /api/checkin | {"bookId":bookId} |  |
 
 ERD
 
