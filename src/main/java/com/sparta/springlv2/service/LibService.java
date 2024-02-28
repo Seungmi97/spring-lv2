@@ -20,14 +20,6 @@ public class LibService {
         this.userRepository = userRepository;
     }
 
-    //    public LibService(BookRepository bookRepository) {
-//        this.bookRepository = bookRepository;
-//    }
-
-//    public LibService(LogRepository logRepository) {
-//        this.logRepository = logRepository;
-//    }
-
     // 회원 등록
     public UserResponseDto createUser(UserRequestDto userRequestDto) {
         User user = new User(userRequestDto);
