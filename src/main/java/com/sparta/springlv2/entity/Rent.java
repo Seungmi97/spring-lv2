@@ -1,15 +1,15 @@
 package com.sparta.springlv2.entity;
 
-import com.sparta.springlv2.dto.LogRequestDto;
+import com.sparta.springlv2.dto.RentRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "log")
+@Table(name = "rent")
 @NoArgsConstructor
-public class Log extends Timestamped {
+public class Rent extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,9 +20,9 @@ public class Log extends Timestamped {
     @Column(name = "returned", nullable = false)
     private boolean returned;
 
-    public Log(LogRequestDto logRequestDto) {
-        this.bookId = logRequestDto.getBookId();
-        this.userId = logRequestDto.getUserId();
-        this.returned = logRequestDto.isReturned();
+    public Rent(RentRequestDto rentRequestDto) {
+        this.bookId = rentRequestDto.getBookId();
+        this.userId = rentRequestDto.getUserId();
+        this.returned = rentRequestDto.isReturned();
     }
 }

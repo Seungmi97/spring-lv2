@@ -53,8 +53,7 @@ public class LibController {
 
     // 대출내역조회
     @GetMapping("/check/{userId}")
-    public LogResponseDto getCheck(@PathVariable Long userId) {
+    public RentResponseDto getCheck(@PathVariable Long userId) {
         return libService.getCheck(userId);
     }
-
 }

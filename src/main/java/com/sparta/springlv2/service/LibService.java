@@ -3,10 +3,10 @@ package com.sparta.springlv2.service;
 import com.sparta.springlv2.dto.*;
 import com.sparta.springlv2.entity.Book;
 import com.sparta.springlv2.repository.BookRepository;
-import com.sparta.springlv2.repository.LogRepository;
+import com.sparta.springlv2.repository.RentRepository;
 import com.sparta.springlv2.repository.UserRepository;
 import com.sparta.springlv2.entity.User;
-import com.sparta.springlv2.entity.Log;
+import com.sparta.springlv2.entity.Rent;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,12 +15,12 @@ import java.util.List;
 public class LibService {
     private final BookRepository bookRepository;
     private final UserRepository userRepository;
-    private final LogRepository logRepository;
+    private final RentRepository rentRepository;
 
-    public LibService(BookRepository bookRepository, UserRepository userRepository, LogRepository logRepository) {
+    public LibService(BookRepository bookRepository, UserRepository userRepository, RentRepository rentRepository) {
         this.bookRepository = bookRepository;
         this.userRepository = userRepository;
-        this.logRepository = logRepository;
+        this.rentRepository = rentRepository;
     }
 
     public BookResponseDto registerBook(BookRequestDto requestDto) {
@@ -67,13 +67,13 @@ public class LibService {
 
 
     // 대출 내역 조회
-    public LogResponseDto getCheck(Long userId) {
-        Log log = findLog(userId);
-        return new LogResponseDto(log);
+    public RentResponseDto getCheck(Long userId) {
+        Rent log = findLog(userId);
+        return new RentResponseDto(log);
     }
 
-    private Log findLog(Long userId) {
-        return logRepository.findById(userId).orElseThrow(() ->
+    private Rent findLog(Long userId) {
+        return rentRepository.findById(userId).orElseThrow(() ->
                 new IllegalArgumentException("선택한 회원의 대출 내역은 존재하지 않습니다.")
         );
     }
