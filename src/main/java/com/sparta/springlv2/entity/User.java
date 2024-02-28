@@ -27,11 +27,11 @@ public class User {
     private String address;
 
     public User(UserRequestDto userRequestDto) {
-        this.name = name;
-        this.gender = gender;
-        this.idNumber = idNumber;
-        this.phone = phone;
-        this.address = address;
+        this.name = userRequestDto.getName();
+        this.gender = userRequestDto.getGender();
+        this.idNumber = userRequestDto.getIdNumber();
+        this.phone = userRequestDto.getPhone();
+        this.address = userRequestDto.getAddress();
     }
 
 }

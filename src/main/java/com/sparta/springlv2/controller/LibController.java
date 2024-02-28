@@ -23,11 +23,11 @@ public class LibController {
         return libService.createUser(userRequestDto);
     }
 
-    // 회원 조회
-    @GetMapping("/user")
-    public  List<UserResponseDto> getUser() {
-        return libService.getUser();
-    }
+//    // 회원 조회
+//    @GetMapping("/user")
+//    public  List<UserResponseDto> getUser() {
+//        return libService.getUser();
+//    }
 }
 
 

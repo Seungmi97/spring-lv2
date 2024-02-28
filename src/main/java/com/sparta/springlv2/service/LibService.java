@@ -6,6 +6,7 @@ import com.sparta.springlv2.entity.User;
 import com.sparta.springlv2.repository.BookRepository;
 import com.sparta.springlv2.repository.LogRepository;
 import com.sparta.springlv2.repository.UserRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,10 +39,10 @@ public class LibService {
         return userResponseDto;
     }
 
-    // 회원 조회
-    public List<UserResponseDto> getUser() {
-        return userRepository.findAllByOrderByCreatedAtDesc().stream().map(UserResponseDto::new).toList();
-    }
+//    // 회원 조회
+//    public List<UserResponseDto> getUser() {
+//        return userRepository.findAllByOrderByCreatedAtDesc().stream().map(UserResponseDto::new).toList();
+//    }
 
 
 
