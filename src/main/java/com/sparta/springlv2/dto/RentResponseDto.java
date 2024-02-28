@@ -1,12 +1,12 @@
 package com.sparta.springlv2.dto;
 
-import com.sparta.springlv2.entity.Log;
+import com.sparta.springlv2.entity.Rent;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
-public class LogResponseDto {
+public class RentResponseDto {
     private Long bookId;
     private Long userId;
     private boolean returned;
@@ -17,12 +17,12 @@ public class LogResponseDto {
     private String title;
     private String writer;
 
-    public LogResponseDto(Log log) {
-        this.bookId = log.getBookId();
-        this.userId = log.getUserId();
-        this.returned = log.isReturned();
-        this.createdAt = log.getCreatedAt();
-        this.modifiedAt = log.getModifiedAt();
+    public RentResponseDto(Rent rent) {
+        this.bookId = rent.getBookId();
+        this.userId = rent.getUserId();
+        this.returned = rent.isReturned();
+        this.createdAt = rent.getCreatedAt();
+        this.modifiedAt = rent.getModifiedAt();
 //        this.name = name;
 //        this.phone = phone;
 //        this.title = title;
