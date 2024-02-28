@@ -9,6 +9,7 @@ import com.sparta.springlv2.entity.User;
 import com.sparta.springlv2.entity.Rent;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -60,22 +61,63 @@ public class LibService {
 //    // 회원 조회
 //    public List<UserResponseDto> getUser() {
 //        return userRepository.findAll().stream().map(UserResponseDto::new).toList();
+
 //    }
 
     // 선택 도서 대출
+    public RentResponseDto rentBook(RentRequestDto rentRequestDto) {
+        Rent rent = new Rent(rentRequestDto);
 
+        // 회원이 대출중인지 여부 판단
+        List<Rent> users = rentRepository.findAllByUserId(rent.getUserId());
+        for (Rent user : users) {
+            if (!user.isReturned()) {
+                return null;
+            }
+        }
+        // 책이 대출중인지 여부 판단
+        List<Rent> rentedBook = rentRepository.findAllByBookId(rent.getBookId());
+        for (Rent rented : rentedBook) {
+            if (!rented.isReturned()) {
+                return null;
+            }
+        }
 
+        Rent saveRent = rentRepository.save(rent);;
 
-    // 대출 내역 조회
-    public RentResponseDto getCheck(Long userId) {
-        Rent log = findLog(userId);
-        return new RentResponseDto(log);
+        RentResponseDto rentResponseDto = new RentResponseDto(rent);
+
+        return rentResponseDto;
     }
 
-    private Rent findLog(Long userId) {
-        return rentRepository.findById(userId).orElseThrow(() ->
-                new IllegalArgumentException("선택한 회원의 대출 내역은 존재하지 않습니다.")
-        );
+    // 선택 도서 반납
+    public RentResponseDto returnBook(RentRequestDto requestDto) {
+        Rent rent = new Rent(requestDto);
+
+        List<Rent> rentedBook = rentRepository.findAllByUserIdAndBookId(rent.getUserId(), rent.getBookId());
+        for (Rent rented : rentedBook) {
+            if (!rented.isReturned()) {
+                rented.setReturned(true);
+                rented.update(requestDto);
+                break;
+            }
+        }
+
+        return new RentResponseDto(rent);
+    }
+
+    // 대출 내역 조회
+    public List<LogResponseDto> getCheck(Long userId) {
+        List<LogResponseDto> logResponseDtoList = new ArrayList<>();
+
+        List<Rent> logs = rentRepository.findAllByUserIdOrderByCreatedAt(userId);
+        for (Rent log :logs) {
+            User user = userRepository.findById(log.getUserId()).orElseThrow();
+            Book book = bookRepository.findById(log.getBookId()).orElseThrow();
+            logResponseDtoList.add(new LogResponseDto(log, user, book));
+        }
+
+        return logResponseDtoList;
     }
 }
 
