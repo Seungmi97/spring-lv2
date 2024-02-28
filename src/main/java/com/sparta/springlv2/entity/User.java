@@ -1,13 +1,14 @@
 package com.sparta.springlv2.entity;
 
-import com.sparta.springlv2.dto.BookRequestDto;
 import com.sparta.springlv2.dto.UserRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "user")
 @NoArgsConstructor
 public class User {
@@ -32,4 +33,5 @@ public class User {
         this.phone = userRequestDto.getPhone();
         this.address = userRequestDto.getAddress();
     }
+
 }

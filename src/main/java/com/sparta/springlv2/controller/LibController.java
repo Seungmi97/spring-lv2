@@ -2,6 +2,8 @@ package com.sparta.springlv2.controller;
 
 import com.sparta.springlv2.dto.BookRequestDto;
 import com.sparta.springlv2.dto.BookResponseDto;
+import com.sparta.springlv2.dto.UserRequestDto;
+import com.sparta.springlv2.dto.UserResponseDto;
 import com.sparta.springlv2.service.LibService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,4 +32,17 @@ public class LibController {
     public BookResponseDto getBook(@PathVariable Long bookId) {
         return libService.getBookById(bookId);
     }
+
+    // 회원 등록
+    @PostMapping("/user")
+    public UserResponseDto createUser(@RequestBody UserRequestDto userRequestDto) {
+        return libService.createUser(userRequestDto);
+    }
+
+//    // 회원 조회
+//    @GetMapping("/user")
+//    public  List<UserResponseDto> getUser() {
+//        return libService.getUser();
+//    }
+
 }

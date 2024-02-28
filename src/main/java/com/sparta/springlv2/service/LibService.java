@@ -6,6 +6,9 @@ import com.sparta.springlv2.entity.Book;
 import com.sparta.springlv2.repository.BookRepository;
 import com.sparta.springlv2.repository.LogRepository;
 import com.sparta.springlv2.repository.UserRepository;
+import com.sparta.springlv2.dto.UserRequestDto;
+import com.sparta.springlv2.dto.UserResponseDto;
+import com.sparta.springlv2.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,4 +47,23 @@ public class LibService {
 
         return bookResponseDto;
     }
+
+    // 회원 등록
+    public UserResponseDto createUser(UserRequestDto userRequestDto) {
+        User user = new User(userRequestDto);
+
+        User saveUser = userRepository.save(user);
+
+        UserResponseDto userResponseDto = new UserResponseDto(user);
+
+        return userResponseDto;
+    }
+
+//    // 회원 조회
+//    public List<UserResponseDto> getUser() {
+//        return userRepository.findAll().stream().map(UserResponseDto::new).toList();
+//    }
+
 }
+
+
