@@ -14,15 +14,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "gender")
+    @Column(name = "gender", nullable = false)
     private char gender;
-    @Column(name = "idNumber", unique = true)
+    @Column(name = "idNumber", nullable = false, unique = true)
     private String idNumber;
-    @Column(name = "phone", unique = true)
+    @Column(name = "phone", nullable = false, unique = true)
     private String phone;
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
 
     public User(UserRequestDto userRequestDto) {

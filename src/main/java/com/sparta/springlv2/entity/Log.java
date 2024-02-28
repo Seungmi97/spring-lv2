@@ -13,11 +13,11 @@ public class Log extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "bookId")
+    @Column(name = "bookId", nullable = false)
     private Long bookId;
-    @Column(name = "userId")
+    @Column(name = "userId", nullable = false)
     private Long userId;
-    @Column(name = "returned")
+    @Column(name = "returned", nullable = false)
     private boolean returned;
 
     public Log(LogRequestDto logRequestDto) {
