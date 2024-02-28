@@ -1,9 +1,6 @@
 package com.sparta.springlv2.controller;
 
-import com.sparta.springlv2.dto.BookRequestDto;
-import com.sparta.springlv2.dto.BookResponseDto;
-import com.sparta.springlv2.dto.UserRequestDto;
-import com.sparta.springlv2.dto.UserResponseDto;
+import com.sparta.springlv2.dto.*;
 import com.sparta.springlv2.service.LibService;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,5 +41,11 @@ public class LibController {
 //    public  List<UserResponseDto> getUser() {
 //        return libService.getUser();
 //    }
+
+    // 대출내역조회
+    @GetMapping("/check/{userId}")
+    public LogResponseDto getCheck(@PathVariable Long userId) {
+        return libService.getCheck(userId);
+    }
 
 }

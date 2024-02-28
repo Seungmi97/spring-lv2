@@ -1,14 +1,12 @@
 package com.sparta.springlv2.service;
 
-import com.sparta.springlv2.dto.BookRequestDto;
-import com.sparta.springlv2.dto.BookResponseDto;
+import com.sparta.springlv2.dto.*;
 import com.sparta.springlv2.entity.Book;
 import com.sparta.springlv2.repository.BookRepository;
 import com.sparta.springlv2.repository.LogRepository;
 import com.sparta.springlv2.repository.UserRepository;
-import com.sparta.springlv2.dto.UserRequestDto;
-import com.sparta.springlv2.dto.UserResponseDto;
 import com.sparta.springlv2.entity.User;
+import com.sparta.springlv2.entity.Log;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,6 +62,16 @@ public class LibService {
 //        return userRepository.findAll().stream().map(UserResponseDto::new).toList();
 //    }
 
-}
+    // 대출 내역 조회
+    public LogResponseDto getCheck(Long userId) {
+        Log log = findLog(userId);
+        return new LogResponseDto(log);
+    }
 
+    private Log findLog(Long userId) {
+        return logRepository.findById(userId).orElseThrow(() ->
+                new IllegalArgumentException("선택한 회원의 대출 내역은 존재하지 않습니다.")
+        );
+    }
+}
 
