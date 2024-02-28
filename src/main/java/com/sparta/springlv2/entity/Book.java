@@ -14,13 +14,13 @@ public class Book extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
-    @Column(name = "writer")
+    @Column(name = "writer", nullable = false)
     private String writer;
-    @Column(name = "language")
+    @Column(name = "language", nullable = false)
     private String language;
-    @Column(name = "publisher")
+    @Column(name = "publisher", nullable = false)
     private String publisher;
 
     public Book(BookRequestDto bookRequestDto) {

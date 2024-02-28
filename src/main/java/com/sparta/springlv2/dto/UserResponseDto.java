@@ -14,6 +14,6 @@ public class UserResponseDto {
         this.name = user.getName();
         this.gender = user.getGender();
         this.phone = user.getPhone();
-        this.address = user.getAddr();
+        this.address = user.getAddress();
     }
 }
