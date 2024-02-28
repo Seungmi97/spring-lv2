@@ -10,9 +10,9 @@ API 명세서
 | 회원 등록 | POST | /api/user | {"name":name, "gender":gender, "idNumber": idNumber, "phone": phone, "address":address} | {"name":name, "gender":gender, "phone": phone, "address":address} |
 | 도서 정보 조회 | GET | /api/book/{bookId} |  | {"title": title, "writer": writer, "language":language, "publisher": publisher, "createdAt":createdAt} |
 | 도서 목록 조회 | GET | /api/book |  |  |
-| 선택 도서 대출 | POST | /api/checkout | {"bookId":bookId, "userId":userId} |  |
+| 선택 도서 대출 | POST | /api/checkout | {"bookId":bookId, "userId":userId} | {"bookId":bookId, "userId":userId, "returned": returned, "createdAt":createdAt, "modifiedAt":modifiedAt} |
 | 대출 내역 조회 | GET | /api/ckeck/{userId} |  |  |
-| 선택 도서 반납 | PUT | /api/checkin | {"bookId":bookId} |  |
+| 선택 도서 반납 | PUT | /api/checkin | {"bookId":bookId, "userId":userId} | {"bookId":bookId, "userId":userId, "returned": returned, "createdAt":createdAt, "modifiedAt":modifiedAt} |
 
 ERD
 
