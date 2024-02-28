@@ -62,6 +62,10 @@ public class LibService {
 //        return userRepository.findAll().stream().map(UserResponseDto::new).toList();
 //    }
 
+    // 선택 도서 대출
+
+
+
     // 대출 내역 조회
     public LogResponseDto getCheck(Long userId) {
         Log log = findLog(userId);

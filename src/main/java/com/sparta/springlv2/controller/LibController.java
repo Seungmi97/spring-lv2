@@ -42,6 +42,15 @@ public class LibController {
 //        return libService.getUser();
 //    }
 
+    // 선택 도서 대출
+    @PostMapping("/checkout")
+    public LogResponseDto bookReturn(@RequestBody LogRequestDto logRequestDto) {
+
+
+    }
+
+
+
     // 대출내역조회
     @GetMapping("/check/{userId}")
     public LogResponseDto getCheck(@PathVariable Long userId) {
